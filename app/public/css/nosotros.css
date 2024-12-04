@@ -1,0 +1,334 @@
+/* Estilos generales */
+* {
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: normal !important;
+}
+
+/* Nosotros estilos */
+.nav a {
+    color: #fff;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 8px 12px;
+    white-space: nowrap !important;
+}
+
+.nav a:hover {
+    color: #ff0048;
+}
+
+.nav a.active {
+    color: #ff0048 !important;
+    font-weight: bold;
+}
+
+.emylyimg {
+    width: clamp(280px, 40%, 600px);
+    height: auto;
+    border-radius: 30px;
+    margin: 20px auto;
+    display: block;
+}
+
+.contenedor_section {
+    padding: clamp(20px, 4vw, 40px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contenedor_section h1 {
+    font-size: clamp(1.8em, 4vw, 2.5em);
+    color: #ff0048;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.63);
+    padding: 8% clamp(20px, 5%, 15%) 20px;
+    text-align: center;
+    word-spacing: normal !important;
+}
+
+.descripcionemy {
+    padding: 0 clamp(20px, 5%, 15%);
+    text-align: justify;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    word-spacing: normal !important;
+    hyphens: auto;
+}
+
+.contenedor_section h2 {
+    font-size: clamp(1.5em, 3vw, 2.0em);
+    color: #ff0048 !important;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.63);
+    word-spacing: normal !important;
+}
+
+.contenidoemy {
+    padding: clamp(15px, 3vw, 20px);
+    background-color: rgba(0, 0, 0, 0.466);
+    border-radius: 30px;
+    box-shadow: 0 4px 18px #ff0048;
+    width: clamp(280px, 90%, 40%);
+    margin: clamp(20px, 4vw, 80px) auto;
+    text-align: left;
+    word-spacing: normal !important;
+}
+
+.mi-botonemy {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    z-index: 1000;
+    display: inline-block;
+    font-weight: 100;
+    margin-top: clamp(15px, 2vw, 1.9%);
+    color: #f4f4f4;
+    padding: 5px 15px;
+    background-color: #ff0048;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap !important;
+}
+
+.mi-botonemy:hover {
+    background-color: #7f06affa;
+    color: #ffff;
+    transform: scale(1.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 clamp(10px, 3vw, 20px);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: clamp(8px, 2vw, 10px);
+    word-spacing: normal !important;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .contenidoemy {
+        width: 45%;
+        margin: 40px auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .contenidoemy {
+        width: 80%;
+    }
+    
+    .row {
+        justify-content: center;
+    }
+
+    .contenedor_section h1,
+    .contenedor_section h2,
+    .descripcionemy,
+    .contenidoemy {
+        color: white;
+        word-spacing: normal !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .contenedor_section h1 {
+        padding-top: 15%;
+        color: white;
+    }
+    
+    .descripcionemy {
+        padding: 0 10%;
+        color: white;
+    }
+    
+    .contenidoemy {
+        width: 90%;
+        
+        color: white;
+    }
+
+    .contenedor_section h2 {
+        color: white !important;
+    }
+
+    p, h1, h2, h3, h4, h5, h6, span, li {
+        word-spacing: normal !important;
+        white-space: normal !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .emylyimg {
+        width: 90%;
+    }
+    
+    .contenedor_section h1 {
+        padding: 20% 5% 5%;
+        color: white;
+    }
+    
+    .descripcionemy {
+        padding: 0 5%;
+        color: white;
+    }
+    
+    .contenidoemy {
+        width: 95%;
+        padding: 15px;
+        color: white;
+    }
+    
+    .mi-botonemy {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    p, span, li {
+        color: white;
+        font-size: 10px;
+        line-height: 1.4;
+        word-spacing: normal !important;
+    }
+}
+
+/* Ajustes para dispositivos muy pequeños */
+@media (max-width: 360px) {
+    .contenedor_section h1 {
+        font-size: 1em;
+        color: white;
+    }
+    
+    .contenedor_section h2 {
+        font-size: 1em;
+        color: white !important;
+    }
+    
+    .contenidoemy {
+        border-radius: 20px;
+        padding: 12px;
+        color: white;
+        margin: clamp(0px, 0, 0px) auto;
+    }
+
+    p, span, li {
+        color: white;
+        word-spacing: normal !important;
+    }
+}
+@media (max-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(2, minmax(280px, 500px));
+    }
+    
+    .contenidoemy {
+        padding: 10px 15px;
+        height: auto;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .row {
+        grid-template-columns: repeat(1, minmax(280px, 800px));
+    }
+    
+    .contenidoemy {
+        width: 90%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenidoemy {
+        width: 95%;
+        padding: 8px;
+        margin: 8px auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .contenidoemy {
+        width: 100%;
+        padding: 6px;
+        margin: 5px auto;
+    }
+    
+    p, span, li {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 360px) {
+    .contenidoemy {
+        width: 100%;
+        padding: 5px;
+        margin: 0 auto;
+        border-radius: 15px;
+    }
+    
+    p, span, li {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 992px) {
+    .contenidoemy, .emylyimg {
+        flex: 1 1 100%;
+    }
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(900px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contenidoemy {
+    min-width: 280px;
+    height: auto;
+    padding: 15px;
+    margin: 0;
+}
+
+.emylyimg {
+    min-width: 280px;
+    height: auto;
+    max-height: 400px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .contenidoemy, .emylyimg {
+        width: 100%;
+    }
+}

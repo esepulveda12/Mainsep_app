@@ -1,0 +1,283 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Martel Sans', 'Maven Pro', sans-serif;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(105,3,48,1) 50%, rgba(0,0,0,1) 77%);
+    color: #fff; 
+    overflow-x: hidden;
+}
+
+/* Sección de Resultados */
+.results-section {
+    background: url("Diseño_basico.gif");
+    padding: clamp(30px, 5vw, 60px) clamp(10px, 3vw, 20px);
+    text-align: center;
+    width: 100vw;      
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.results-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(15px, 3vw, 20px);
+}
+
+/* Título de la Sección */
+.results-title {
+    font-size: clamp(1.8em, 5vw, 2.5em);
+    color: white;
+    font-weight: 600;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+    margin-top: clamp(40px, 8vw, 8%);
+}
+
+/* Descripción de los Resultados */
+.results-description {
+    font-size: clamp(1em, 3vw, 1.4em);
+    line-height: 1.7;
+    color: rgb(255, 255, 255);
+    margin-bottom: clamp(20px, 4vw, 30px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+}
+
+.results-description strong {
+    color: #ff0048;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.678);  
+}
+
+/* Botón de Llamada a la Acción */
+.btn-Resultado {
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 30px);
+    font-size: clamp(0.9em, 2vw, 1.1em);
+    color: #fff;
+    background-color: #ff0048; 
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+}
+
+.btn-Resultado:hover {
+    background-color: #9909a7;
+    transform: translateY(-3px);
+}
+
+/* Casos de Éxito */
+.casos-exito {
+    background: url("Diseño_basico.gif");
+    padding: clamp(30px, 5vw, 60px) 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.mainsep-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #ff0048;
+    margin-bottom: clamp(10px, 2vw, 10px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+    border-bottom: 2px solid #ff0048;
+}
+
+.mainsep-description {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgb(255, 255, 255);
+    max-width: 600px;
+    margin: 0 auto clamp(20px, 4vw, 30px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+}
+
+.contador-casos {
+    font-family: Arial, sans-serif;
+}
+
+.counter-number {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+    color: #ff0048;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+}
+
+.counter-text {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);  
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.541);
+    width: clamp(280px, 90%, 20rem);
+    height: auto;
+    min-height: clamp(400px, 80vh, 30rem);
+    box-shadow: 0px 0px 20px 0 #ff0048fb;
+    border: 2px solid #ff0048;
+    margin: clamp(10px, 2vw, 20px) auto;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-text {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: clamp(10px, 2vw, 15px); 
+}
+
+.card-title {
+    color: #ff0048;
+    border-bottom: 2px solid #ff0048;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: clamp(10px, 2vw, 15px);
+}
+
+.nav {
+    background-color: black;
+    padding: clamp(10px, 2vw, 15px);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav li {
+    margin: clamp(5px, 1.5vw, 15px);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(14px, 2.5vw, 18px);
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #ff0048;
+}
+
+.nav a.active {
+    color: #ff0048;
+    font-weight: bold;
+}
+
+.galeria {
+    background: url("Diseño_basico.gif");
+    padding: clamp(30px, 5vw, 60px) clamp(10px, 3vw, 20px);
+    text-align: center;
+    border: none;
+    background-size: cover;
+    background-position: center;
+}
+
+.galeria h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #ff0048;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);
+    margin-bottom: clamp(30px, 8%, 8%) !important;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: clamp(10px, 2vw, 15px) 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .results-content {
+        padding: 15px;
+    }
+
+    .card {
+        width: clamp(260px, 85%, 18rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav li {
+        margin: 5px 0;
+    }
+
+    .results-title {
+        font-size: 2.2em;
+    }
+
+    .results-description {
+        font-size: 1em;
+    }
+
+    .btn-Resultado {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+
+    .galeria {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        margin: 15px auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .results-content {
+        padding: 10px;
+    }
+
+    .card {
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .counter-number {
+        font-size: 2.5rem;
+    }
+
+    .counter-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav a {
+        font-size: 14px;
+    }
+
+    .results-title {
+        font-size: 1.8em;
+    }
+
+    .results-description {
+        font-size: 0.9em;
+    }
+
+    .card {
+        min-height: 350px;
+    }
+}

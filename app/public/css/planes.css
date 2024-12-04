@@ -1,0 +1,256 @@
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Martel Sans', "Maven Pro", sans-serif;
+    text-decoration: none;
+  }
+
+  .header {
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    justify-content: space-evenly; /* Distribuye el espacio de manera uniforme entre los elementos */
+    padding: 10px 20px; 
+}
+
+  
+  body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(105,3,48,1) 50%, rgba(0,0,0,1) 77%);
+      
+  }
+
+  .holi{
+      color: #fff;
+
+  }
+  
+  /* Sección de Planes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  .nav a {
+    color: #fff; 
+    transition: color 0.3s; 
+}
+
+
+
+.imgemy{
+  width: 55px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 30px;
+
+}
+.nav a:hover {
+    color: #ff0048; 
+}
+
+.nav a.active {
+    color: #ff0048;
+    font-weight: bold; 
+}
+
+  
+  h1 {
+    color: #ff0048;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  h5 {
+    color: #ff0048;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .emybtn{
+      border-color: #d80040;
+      padding: 10px 24px;
+      font-size: 14px;  
+
+  }
+  .emybtn:hover{
+    background-color: #ff0048!important; /* Cambia el color de fondo al pasar el mouse */
+    color: #fff; /* Mantiene el texto blanco al hacer hover */
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button-container {
+    display: inline-block;              /* Usar flexbox */
+    margin-top: 20px;          /* Espacio superior para los botones */
+}
+
+
+  .embtn2{
+    background-color: #9500ff  !important;
+    padding: 12px 24px;
+    font-size: 14px;  
+
+}
+  .embtn2:hover{
+    background-color: #ff0048 !important; /* Cambia el color de fondo al pasar el mouse */
+    color: #fff; /* Mantiene el texto blanco al hacer hover */
+    border: #ffffff; /* Puedes definir un borde si lo deseas */
+    transition: background-color 0.3s, color 0.3s;
+  
+} 
+
+
+
+  .card-title{
+      color: #fff;
+
+  }
+
+  .card-text{
+      color: white
+    }
+  
+  .card {
+    background-color: #000000a4;
+    border: 2px solid #ff0048;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  }
+  
+  .card h5 {
+    font-size: 20px;
+    margin-bottom: 15px;
+   
+  }
+  
+  .card h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+    color: #ff0048;
+  }
+  
+  .card .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 13px;
+  }
+  
+  .card .list-group-item::before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    margin-right: 8px;
+    color: #ff0048;
+  }
+  
+  .card-body a {
+    display: inline-block;
+    background-color: #ff0048;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  .card-body a:hover {
+    background-color: #d80040;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 10px 10px;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    .card {
+      margin-bottom: 10px;
+    }
+  
+    .card h4 {
+      font-size: 20px;
+    }
+  
+    .card h5 {
+      font-size: 20px;
+    }
+  
+    .card-body a {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
+    .button-container {
+      flex-direction: column;  
+      align-items: flex-end;    
+      margin-top: 15px;         
+  }
+
+  .embtn2, .emybtn {
+      width: 100%;              
+      margin-top: 10px;         
+      padding: 10px;           
+      font-size: 14px;         
+  }
+}
+  
+
+.cart-icon {
+  position: relative; 
+  display: inline-block;
+  margin: 1px;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 35px; 
+ 
+}
+
+.cart-count {
+  position: absolute;
+  top: 2px; 
+  right: -1px; 
+  background-color: rgb(151, 5, 255); 
+  color: #fff; 
+  border-radius: 50%; 
+  padding: 4px 8px; 
+  font-size: 8px; 
+  font-weight: 700;
+  line-height: 1; 
+}
+
+.cart-icon:hover{
+  transform: scale(1.2);
+}
+
+.usuario-icon{
+  display: inline-block;
+}
+
+.usuario-icon img{
+  width: 35px; 
+  margin: 4px;
+}
+
+.usuario-icon:hover{
+  transform: scale(1.2);
+}

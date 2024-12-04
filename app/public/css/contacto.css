@@ -1,0 +1,805 @@
+
+@import url("https://fonts.googleapis.com/css?family=Martel+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro&display=swap" );
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Martel Sans', "Maven pro";
+  text-decoration: none;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    
+      
+  }
+
+
+/*logo nav */
+
+.header .logo img {
+    height: 174px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo {
+    cursor: pointer;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+/* nav menu */
+
+.header .nav{
+    list-style: none;
+    font-size: 20px;
+}
+
+
+.header .nav li{
+     display: inline-block;
+     padding: 0 20px;
+     line-height: 60px;
+     margin: 0 5px;
+     text-decoration: none;
+}
+
+
+.header .nav li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav a{
+    font-size: 16px;
+    color: #FFFF;
+    text-decoration:none; 
+}
+
+.header .nav li a:hover{
+    color: #ff0048;
+}
+
+
+
+
+/*boton header*/
+
+
+.header .btn-contacto button{
+    font-weight: 700;
+    color: #f4f4f4;
+    padding: 7px 25px;
+    background-color: #ff0048;
+    border-radius: 50px;
+    border-color: #ff0048;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-size: 16px;
+ 
+}
+
+.header .btn-contacto button:hover{
+    background-color: #ff0048;
+    color: #ffff;
+    transform: scale(1.1);
+}
+
+
+.checkbtn{
+    font-size: 30px; 
+    color: #ff0048;
+    cursor: pointer;
+    display: none; 
+}
+
+#check{
+    display: none;
+}
+
+
+@media (max-width: 1200px){
+    .header{
+        padding-left: 20px;
+
+    }
+    .header  ul li a{
+        font-size: 16px;
+
+    }
+
+    .header .btn-contacto button{ 
+        font-weight: 200;
+        color: #f4f4f4;
+        padding: 7px 20px;
+        font-size: 16px;
+        margin: auto;
+
+
+    }
+    .header .logo img {
+        height: 134px;
+        width: auto;
+    }
+    
+
+
+}
+/* responsive desing de nav bar*/
+
+@media (max-width:1000px){
+    .header{
+        padding-left: 20px;
+
+    }
+    .header .nav a{
+        font-size: 10px;
+
+    }
+
+    .header .btn-contacto button{ 
+        font-weight: 200;
+        color: #f4f4f4;
+        padding: 7px 20px;
+        font-size: 10px;
+        margin: auto;
+
+    }
+    .header .logo img {
+        height: 134px;
+        width: auto;
+    }
+}
+    
+
+
+/* Estilos responsivos para pantallas pequeñas */
+
+@media (max-width: 858px) {
+
+    nav {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    ul.nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    ul.nav li {
+        margin: 0 10px;
+    }
+
+    ul.nav li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    ul.nav li a:hover, ul.nav li a.active {
+        color: #ff0048;
+    }
+
+    .checkbtn {
+        display: block;
+    }
+
+    ul.nav {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        top: 110px;
+        left: -100%;
+        text-align: center;
+        transition: left .55s;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    ul.nav li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    #check:checked ~ ul.nav {
+        left: 0;
+    }
+
+    .btn-contacto{
+        display: none;
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .text-overlay h1 {
+        font-size: 1.5em;
+    }
+
+    .text-overlay p {
+        font-size: 1em;
+    }
+
+    .text-overlay .btn {
+        font-size: 0.9em;
+    }
+    
+}
+
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff0048; 
+    color: white;
+    font-size: 30px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 1000; 
+  }
+  
+  .chat-button:hover {
+    background-color: #ff0048; 
+    transform: scale(1.1); 
+  }
+  
+  .chat-button i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+
+.social-bar {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #ff0048; 
+    padding: 15px 15px;
+    border-radius: 50px;
+    border-color: #ff0048;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    
+  }
+  
+  .social-bar a {
+    color: white;
+    font-size: 24px;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: transform 0.1s ease;
+  }
+  
+  .social-bar a:hover {
+    transform: scale(1.5);
+  }
+  
+  .social-icon i {
+    display: block;
+  }
+  
+  .whatsapp { background-color: transparent; }
+  .facebook { background-color: transparent; }
+  .tiktok { background-color: transparent; }
+  .linkedin { background-color: transparent; }
+  
+
+
+/* Estilos para el formulario de contacto */
+
+.container-fondo {
+    background-image: url('images/FondoMaisep.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative;
+    padding: 60px 0; 
+}
+
+
+
+.formulario-contacto {
+    background-color: rgba(0, 0, 0, 0.753); 
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 2px solid #ff0048;
+}
+
+.contenedor-formulario h2 {
+    color: #ffffff; 
+    text-align: center;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #f4f4f4;
+    font-weight: 100;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(255, 255, 255);
+    border: 1px solid #ff0048;
+    border-radius: 15px;
+    color: #000000;
+    font-size: 1rem;
+    font-family: 'Maven pro', sans-serif; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #700121;
+    box-shadow: 0 0 5px rgba(255, 0, 72, 0.5);
+}
+
+.mi-boton {
+    display: inline-block;
+    background-color: #ff0048;
+    color: #f4f4f4;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mi-boton:hover {
+    background-color: #a50432;
+}
+
+@media (max-width: 768px) {
+    .formulario-contacto {
+        padding: 20px;
+    }
+
+    .contenedor-formulario h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/*footer*/
+.footer {
+    background-color: black; 
+    color: #f4f4f4; 
+    padding: 20px; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; 
+    border-top: 2px solid #ff0048;
+}
+
+.logofooter {
+    flex: 1; 
+    text-align: center; 
+}
+
+.logofooter img {
+    max-width: 180px; 
+    height: auto; 
+}
+
+.contacto, .enlaces, .legal {
+    flex: 1; 
+    margin: 10px; 
+}
+
+.contacto h4, .enlaces h4 {
+    border-bottom: 2px solid #ff0048; 
+    padding-bottom: 5px; 
+}
+
+.enlaces ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+.enlaces li {
+    margin: 5px 0; 
+}
+
+.enlaces a {
+    color: #f4f4f4; 
+    text-decoration: none;
+}
+
+.enlaces a:hover {
+    color: #ff0048;
+    
+    
+}
+
+.legal {
+    text-align: center; 
+    flex-basis: 100%;
+    margin-top: 20px;  
+    font-size: 0.9rem; 
+
+}
+
+
+/*slider apps */
+
+
+.slider {
+    overflow: hidden; 
+    position: relative;
+    width: 100%; 
+    height: 70px; 
+    background-color: #000000;
+    border-top: 2px solid #ff0048;
+}
+
+.slider-contenedor {
+    display: flex; 
+    animation: scroll 10s linear infinite; 
+}
+
+.slideapp {
+    flex: 0 0 auto; 
+    width: 50px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-right: 30px;
+}
+
+.slideapp img {
+    justify-content: space-evenly;
+    max-width: 100%;
+    height: auto; 
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*footer*/
+.footer {
+    background-color: black; 
+    color: #f4f4f4; 
+    padding: 20px; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; 
+    border-top: 2px solid #ff0048;
+}
+
+.logofooter {
+    flex: 1; 
+    text-align: center; 
+}
+
+.logofooter img {
+    max-width: 180px; 
+    height: auto; 
+}
+
+.contacto, .enlaces, .legal {
+    flex: 1; 
+    margin: 10px; 
+}
+
+.contacto h4, .enlaces h4 {
+    border-bottom: 2px solid #ff0048; 
+    padding-bottom: 5px; 
+}
+
+.enlaces ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+.enlaces li {
+    margin: 5px 0; 
+}
+
+.enlaces a {
+    color: #f4f4f4; 
+    text-decoration: none;
+}
+
+.enlaces a:hover {
+    color: #ff0048;
+    
+    
+}
+
+.legal {
+    text-align: center; 
+    flex-basis: 100%;
+    margin-top: 20px;  
+    font-size: 0.9rem; 
+
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .contacto, .enlaces, .legal, .logofooter {
+      flex: 1 1 100%;
+      text-align: center;
+      margin: 10px 0;
+  }
+  .contacto p{
+    font-size: 0.9rem;
+  }
+  .contacto h4{
+    font-size: 0.9rem;
+  }
+  .enlaces h4 {
+    font-size: 0.9rem;
+  }
+  .enlaces li{
+    font-size: 0.9rem;
+  }
+
+  .legal p {
+      font-size: 0.7rem;
+      margin-top: 15px;
+  }
+}
+
+
+
+  /* Estilos para el carrito */
+.cart-icon {
+    position: relative; 
+    display: inline-block;
+    margin: 1px;
+    cursor: pointer;
+  }
+  
+  .cart-icon img {
+    width: 35px; 
+   
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: 2px; 
+    right: -1px; 
+    background-color: rgb(151, 5, 255); 
+    color: #fff; 
+    border-radius: 50%; 
+    padding: 4px 8px; 
+    font-size: 8px; 
+    font-weight: 700;
+    line-height: 1; 
+  }
+  
+  .cart-icon:hover{
+    transform: scale(1.2);
+  }
+  
+  .usuario-icon{
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .usuario-icon img{
+    width: 35px; 
+    margin: 4px;
+    cursor: pointer;
+  }
+  
+  .usuario-icon:hover{
+    transform: scale(1.2);
+  }
+
+
+  /* Estilos para el modal */
+  .btn-close{
+    filter: invert(100%)
+  }
+.custom-modal-content {
+    background-color: rgb(0, 0, 0) !important; /* Fondo oscuro */
+    color: #fff !important;
+    border-radius: 8px !important; /* Esquinas redondeadas */
+  }
+  
+  .custom-modal-header,
+  .custom-modal-footer {
+    border: none !important;
+  }
+  
+  .custom-btn {
+    background-color: #FF0048 !important; /* Fucsia */
+    color: #fff !important;
+    border: none !important;
+  }
+  
+  .custom-btn:hover {
+    background-color: #FF0048 !important; /* Fucsia oscuro al pasar el mouse */
+  }
+  
+  /* Estilos para el offcanvas */
+  .custom-offcanvas {
+    background-color: rgb(0, 0, 0) !important; /* Fondo oscuro */
+    color: #fff !important;
+    border-radius: 8px !important;
+  }
+  
+  .custom-offcanvas-footer {
+    padding: 1rem !important;
+    border-top: 2px solid #FF0048 !important; /* Línea de separación en el footer */
+  }
+  
+  .btn-danger {
+    background-color: #FF0048 !important; /* Fucsia */
+    color: #fff !important;
+    border: none !important;
+  }
+  
+  .btn-danger:hover {
+    background-color: #7109cd !important; /* Fucsia oscuro al pasar el mouse */
+  }
+  
+  .btn-success {
+    background-color: #FF0048!important; /* Verde para el botón de pagar */
+    color: #fff !important;
+    border: none !important;
+  }
+  
+  .btn-success:hover {
+    background-color: #7109cd !important; /* Verde oscuro al pasar el mouse */
+  }
+  
+
+/* Estilo para los planes dentro del modal del carrito */
+.added-to-cart-item {
+    background-color: #ff4081 !important; /* Fondo fucsia */
+    color: #fff !important; /* Texto en blanco */
+    border-radius: 8px !important; /* Bordes redondeados */
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    font-size: 1rem !important;
+  }
+  
+  .added-to-cart-item strong {
+    color: #fff !important; /* Color del nombre del plan */
+  }
+  
+  @keyframes bounceUp {
+    0% {
+      transform: translateY(0); 
+    }
+    25% {
+      transform: translateY(-5px); 
+    }
+    50% {
+      transform: translateY(0); 
+    }
+    75% {
+      transform: translateY(-3px); 
+    }
+    100% {
+      transform: translateY(0); 
+    }
+  }
+  
+  .emy-icon i {
+    color: #ff0048; 
+    font-size: 30px; 
+    display: block;
+    margin-bottom: 8px;
+    animation: bounceUp 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* Animación de rebote */
+  }
+  
+/* Estilos para el modal */
+.custom-modal-content {
+  background-color: rgb(0, 0, 0) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  text-align: center !important; /* Centra todo el texto del modal */
+}
+
+.custom-modal-header,
+.custom-modal-footer {
+  border: none !important;
+  text-align: center !important;
+}
+
+/* Ajuste del espacio entre carrito y menú hamburguesa */
+.cart-icon {
+  position: relative;
+  display: inline-block;
+  margin: 1px 20px !important; /* Aumenta el margen derecho */
+  cursor: pointer;
+}
+
+/* Centra específicamente los elementos dentro del modal */
+.modal-body,
+.modal-title,
+.modal-footer {
+  text-align: center !important;
+}
+
+/* Asegura que los elementos del carrito estén centrados */
+.added-to-cart-item {
+  background-color: #ff4081 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  margin-bottom: 8px !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ajusta el espaciado en el header para dispositivos móviles */
+@media (max-width: 768px) {
+  .cart-icon {
+      margin: 1px 15px !important; /* Ajusta el margen en pantallas más pequeñas */
+  }
+  
+  .custom-modal-content {
+      margin: 10px;
+      width: 90% !important;
+  }
+}
+
+/* Asegura que el ícono del carrito mantenga su espacio en todos los viewports */
+@media (max-width: 480px) {
+  .cart-icon {
+      margin: 1px 10px !important;
+  }
+}

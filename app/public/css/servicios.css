@@ -1,0 +1,210 @@
+/* Reset y estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Martel Sans', 'Maven Pro', sans-serif;
+    text-decoration: none;
+    word-spacing: normal !important;
+}
+
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(105,3,48,1) 50%, rgba(0,0,0,1) 77%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Navegación */
+.nav {
+    padding: clamp(10px, 2vw, 20px);
+}
+
+.nav a {
+    color: #fff;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 8px clamp(10px, 2vw, 15px);
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+.nav a:hover {
+    color: #ff0048;
+}
+
+.nav a.active {
+    color: #ff0048;
+    font-weight: bold;
+}
+
+/* Estilos para las tarjetas de servicio */
+.card {
+    background-color: rgba(0, 0, 0, 0.589);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 18px #ff024a86 !important;
+    margin-bottom: clamp(15px, 3vw, 25px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px #ff024ab9 !important;
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: clamp(15px, 3vw, 20px);
+}
+
+.card-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: #ff0048;
+    margin-bottom: clamp(8px, 2vw, 10px);
+}
+
+.card-text {
+    color: #f4f4f4;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background-color: #ff0048;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 20px);
+    font-size: clamp(14px, 1.5vw, 16px);
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    background-color: #e6003c;
+    transform: scale(1.05);
+}
+
+/* Media Queries */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .card {
+        margin-bottom: 25px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 15px;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+        height: auto;
+    }
+    
+    .nav a {
+        padding: 6px 10px;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .card-text {
+        font-size: 14px;
+    }
+    
+    .btn-primary {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 540px;
+        padding: 0 10px;
+    }
+    
+    .card {
+        margin: 15px 10px;
+    }
+    
+    .card-body {
+        padding: 12px;
+    }
+    
+    .nav {
+        padding: 10px;
+    }
+    
+    .nav a {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 8px;
+    }
+    
+    .card {
+        margin: 12px 8px;
+    }
+    
+    .card-body {
+        padding: 10px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 13px;
+    }
+    
+    .btn-primary {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

@@ -265,3 +265,51 @@ app.listen(PORT, () => {
 });
 
 
+
+
+
+// Ruta para verificar token
+app.get('/api/verify-token', authMiddleware, (req, res) => {
+  try {
+      res.json({ valid: true, user: req.user });
+  } catch (error) {
+      res.status(401).json({ message: "Token inválido" });
+  }
+});
+
+// Ruta para obtener perfil de usuario
+app.get('/api/user-profile', authMiddleware, async (req, res) => {
+  try {
+      const user = await Usuario.findById(req.user.id).select('-password');
+      res.json(user);
+  } catch (error) {
+      res.status(500).json({ message: "Error al obtener perfil" });
+  }
+});
+
+// Ruta para obtener actividad del usuario
+app.get('/api/user-activity', authMiddleware, async (req, res) => {
+  try {
+      const activity = await Order.find({ userId: req.user.id })
+          .sort({ createdAt: -1 })
+          .limit(5);
+      res.json(activity);
+  } catch (error) {
+      res.status(500).json({ message: "Error al obtener actividad" });
+  }
+});
+
+
+// En tu index.js
+app.get('/api/user-plans', authMiddleware, async (req, res) => {
+  try {
+      const user = await Usuario.findById(req.user.id);
+      res.json(user.subscription ? [user.subscription] : []);
+  } catch (error) {
+      res.status(500).json({ message: "Error al obtener planes" });
+  }
+});
+
+app.get('/api/plans/:id', authMiddleware, async (req, res) => {
+  // Implementar lógica para obtener detalles del plan
+});

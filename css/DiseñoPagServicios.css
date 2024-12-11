@@ -1,0 +1,244 @@
+/* Estilos Generales */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Encabezado */
+.headeremy {
+    background-color: #81032788;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.headeremy h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.headeremy p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    padding: 0 20px;
+}
+
+/* Sección de Servicios */
+.services {
+    padding: clamp(30px, 5vw, 90px);
+    background: url("imagenesInicio/Diseño\ sin\ título\ \(25\).gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-list {
+    flex: 1;
+    min-width: 300px;
+    padding-right: clamp(15px, 3vw, 30px);
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.step-item i {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #ff0048;
+    flex-shrink: 0;
+}
+
+.step-item .step-text {
+    flex: 1;
+}
+
+.step-item h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #ff0048;
+    font-weight: 600;
+}
+
+.step-item p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: rgb(255, 255, 255);
+}
+
+/* Sección de Proceso */
+.process {
+    background-color: rgb(0, 0, 0);
+    padding: clamp(30px, 5vw, 60px);
+}
+
+.process h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.process ol {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    padding-left: 20px;
+}
+
+/* Tarjetas */
+.card {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .service-content {
+        gap: 20px;
+    }
+    
+    .service-list {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-content {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .service-image {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .service-list {
+        padding-right: 0;
+    }
+
+    .step-item {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .headeremy {
+        padding: 30px 0;
+    }
+
+    .services {
+        padding: 40px 20px;
+    }
+
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .step-item i {
+        margin-bottom: 10px;
+    }
+
+    .process {
+        padding: 40px 20px;
+    }
+
+    .card {
+        margin: 0 auto 20px;
+    }
+}
+.process {
+    background-color: rgb(0, 0, 0);
+    padding: clamp(30px, 5vw, 60px);
+    color: #ffffff;
+}
+
+.process h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: clamp(20px, 4vw, 40px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.servicesemy {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(15px, 3vw, 30px);
+}
+
+.process ol {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    padding-left: clamp(20px, 4vw, 40px);
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.process ol li {
+    margin-bottom: clamp(15px, 3vw, 25px);
+    color: #ffffff;
+}
+
+.process strong {
+    color: #ff0048;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .process {
+        padding: clamp(20px, 4vw, 40px);
+    }
+
+    .process ol {
+        padding-left: 25px;
+        font-size: 0.95rem;
+    }
+
+    .process h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process {
+        padding: 20px;
+    }
+
+    .process ol {
+        padding-left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .process h2 {
+        font-size: 1.6rem;
+    }
+
+    .process li {
+        margin-bottom: 15px;
+    }
+}

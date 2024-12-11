@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Exito - MainSep</title>
+    <link rel="icon" href="imagenes/iconos/iconomainsep.png" type="image/x-icon">
+    <link href="css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/portafolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Encabezado  menú de navegación -->
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/images/logomainsep.png" alt="logo de la imagen">
+        </div>
+        <nav>
+            <ul class="nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html" >Servicios</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="portafolio.html" class="active" >Casos de exito</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- Botón de contacto -->
+            <a href="Contacto.html" class="btn-contacto"><button>Contacto</button></a>
+            
+            <div class="cart-icon" style="position: relative; display: inline-block;">
+                <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" style="border: none; background: transparent; padding: 0;">
+                  <img src="imagenes/images/carrito-de-compras.png" alt="Carrito">
+                  <span class="cart-count">0</span>
+                </button>
+              </div>
+                <div href="1_PaginaWeb/login.html" class="usuario-icon" style="position: relative; display: inline-block;">
+                    <a href="login.html">
+                        <img src="imagenes/images/circulo-de-usuario.png" alt="usuario" style="cursor: pointer;">
+                    </a>
+                </div>
+          </div>
+          <!-- Botón para abrir el modal en pantallas pequeñas -->
+   <span class="checkbtn" onclick="toggleModal()">&#9776;</span>
+            
+    </header>
+    <!-- Modal de navegación -->
+  <div id="menuModal" class="modalemy">
+    <div class="modal-content">
+        <span class="close" onclick="toggleModal()">&times;</span>
+        <div class="header-actionsmodal">
+            <div href="1_PaginaWeb/login.html" class="usuario-iconmodal" style="position: relative; display: inline-block;">
+              <a href="login.html">
+                <img src="imagenes/images/circulo-de-usuario.png" alt="usuario" style="cursor: pointer;">
+              </a>
+          </div>
+       
+        <nav>
+            <ul class="navemy">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="planes.html">Planes</a></li>
+              <li><a href="portafolio.html">Casos de éxito</a></li>
+            </ul>
+            
+        </nav>
+        <a href="Contacto.html" class="btn-contactomodal"><button>Contacto</button></a>
+      </div>
+    </div>
+</div>
+
+    <main>
+
+      <section class="results-section">
+        <div class="results-content">
+          <h2 class="results-title">Logros Obtenidos</h2>
+          <p class="results-description">
+            <strong>¿Te gustaría conocer los resultados que hemos logrado para nuestros clientes?</strong> Aquí te mostramos todo con total transparencia. 
+            Con su consentimiento, compartimos los logros alcanzados en proyectos de empresas de diversos sectores. Todos tienen algo en común: 
+            un alto retorno de inversión gracias a nuestro trabajo. 
+            Descubre sus reseñas y experiencias de primera mano, y conoce los beneficios que obtuvieron al confiar en nosotros
+          </p>
+          <button class="btn-Resultado" onclick="location.href='#casosexito'">Ver Casos de Éxito</button>
+
+        </div>
+      </section>
+      <section class="casos-exito py-5">
+        <div class="container text-center">
+           <h2 class="mainsep-title">Casos de Éxito</h2>
+          <p class="mainsep-description">
+            Descubre los logros obtenidos por nuestros clientes. Cada caso es una muestra de nuestro compromiso y resultados.
+          </p>
+
+          <div class="contador-casos mt-4">
+            <h3 class="counter-number" data-target="150">0</h3>
+           <p class="counter-text">Proyectos Exitosos</p>
+          </div>
+       </div>
+  </section>
+      
+      <section  id= "casosexito" class="galeria py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Algunas empresas que han confiado en nosotros</h2>
+          
+          <!-- Galería de Proyectos -->
+          <div class="row">
+            
+            <!-- Proyecto 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /saludable.png" class="card-img-top" alt="HealthyFit">
+                <div class="card-body">
+                  <h5 class="card-title">HealthyFit</h5>
+                  <p class="card-text">HealthyFit nos ayudó a ofrecer una app con funcionalidades que motivan a nuestros usuarios a adoptar un estilo de vida saludable. ¡Excelente trabajo!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Proyecto 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /app medica.png" class="card-img-top" alt="MediConnect">
+                <div class="card-body">
+                  <h5 class="card-title">MediConnect</h5>
+                  <p class="card-text">Nuestros usuarios pueden acceder a sus servicios médicos de manera rápida. ¡Excelente implementación por Mainsep!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Proyecto 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /burger.png" class="card-img-top" alt="BurgerHub">
+                <div class="card-body">
+                  <h5 class="card-title">BurgerHub</h5>
+                  <p class="card-text">Gracias a BurgerHub, nuestros clientes pueden pedir sus hamburguesas favoritas de manera fácil y rápida. ¡Gran experiencia de usuario!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Proyecto 4 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /bussapp.png" class="card-img-top" alt="BussApp">
+                <div class="card-body">
+                  <h5 class="card-title">BussApp</h5>
+                  <p class="card-text">Mainsep nos ayudó a crear una app ideal para empresas en crecimiento. Con BussApp, nuestros usuarios gestionan sus negocios fácilmente.</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Proyecto 5 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /fitness app.png" class="card-img-top" alt="FitPro">
+                <div class="card-body">
+                  <h5 class="card-title">FitPro</h5>
+                  <p class="card-text">FitPro es nuestra herramienta favorita para llevar un registro de ejercicios. ¡La interfaz y la experiencia son inigualables!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Proyecto 6 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /goodlife.png" class="card-img-top" alt="GoodLife">
+                <div class="card-body">
+                  <h5 class="card-title">GoodLife</h5>
+                  <p class="card-text">GoodLife nos ofrece una experiencia saludable y accesible para quienes buscan un cambio en su bienestar diario. ¡Excelente app!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Proyecto 7 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /mobileapprun.png" class="card-img-top" alt="WellnessPro">
+                <div class="card-body">
+                  <h5 class="card-title">WellnessPro</h5>
+                  <p class="card-text">WellnessPro nos ayudó a ofrecer una solución completa de bienestar a nuestros usuarios. ¡Totalmente satisfechos!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <!-- Proyecto 8 -->
+             <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /vuelaapp.png" class="card-img-top" alt="WellnessPro">
+                <div class="card-body">
+                  <h5 class="card-title">VuelaApp</h5>
+                  <p class="card-text">VuelaApp ha transformado la forma en que organizamos nuestros viajes y hace que encontrar vuelos sea rápido y fácil. ¡Excelente trabajo de Mainsep!</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Proyecto 9 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="imagenes/galeria /yoga app.png" class="card-img-top" alt="MeditApp">
+                <div class="card-body">
+                  <h5 class="card-title">MeditApp</h5>
+                  <p class="card-text">MeditApp simplificó el acceso a terapias de meditación y yoga para nuestros usuarios. La interfaz es perfecta.</p>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+          
+        </div>
+      </section>
+      
+      <!-- Estilo para estrellas -->
+      <style>
+        .checked {
+          color: #FFD700; /* Color dorado para las estrellas */
+        }
+        .rating {
+          margin-bottom: 10px; /* Espacio entre la reseña y el texto */
+        }
+      </style>
+            <!-- Sección Casos de Éxito -->
+        
+    
+    </main>
+    
+  
+   
+<!-- Pie de página -->
+<footer class="footer">
+    <div class="logofooter">
+        <img src="imagenes/images/logomainsep.png" alt="Logo Mainsep"> 
+    </div>
+    <div class="contacto">
+        <h4>Contacto</h4>
+        <p>Teléfono: +57 304277012</p>
+        <p>Correo: info@mainsep.com</p>
+    </div>
+
+    <div class="enlaces">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+        </ul>
+    </div>
+
+    <div class="legal">
+        <p>© 2024 Mainsep. Todos los derechos reservados.</p>
+        <p>Mainsep utiliza tecnología blockchain para garantizar seguridad y eficiencia en las transacciones.</p>
+    </div>
+</footer>
+<!-- Offcanvas para el carrito -->
+<div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header mx-4">
+      <h5 id="cartOffcanvasLabel">Carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul id="cart-items" class="list-group">
+        <!-- Los artículos del carrito se agregarán aquí -->
+      </ul>
+      <div class="mt-3">
+        <strong>Total: $<span id="cart-total">0</span></strong>
+      </div>
+    </div>
+    <div class="offcanvas-footer custom-offcanvas-footer d-flex justify-content-between">
+      <button type="button" class="btn btn-danger" id="emptyCartButton">Vaciar Carrito</button>
+      <button type="button" class="btn btn-success" id="checkoutButton">Pagar ahora</button>
+    </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="carrito.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const counters = document.querySelectorAll('.counter-number');
+          const speed = 100; // velocidad de incremento
+  
+          counters.forEach(counter => {
+              const updateCount = () => {
+                  const target = +counter.getAttribute('data-target');
+                  const count = +counter.innerText;
+  
+                  // Incremento del número
+                  const inc = target / speed;
+  
+                  if (count < target) {
+                      counter.innerText = Math.ceil(count + inc);
+                      setTimeout(updateCount, 30); // Ajustar la velocidad de animación
+                  } else {
+                      counter.innerText = target;
+                  }
+              };
+  
+              // Inicia la animación al hacer scroll hasta la sección
+              const observer = new IntersectionObserver(entries => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          updateCount();
+                          observer.unobserve(counter);
+                      }
+                  });
+              }, { threshold: 0.5 });
+  
+              observer.observe(counter);
+          });
+      });
+  </script>
+  <script>
+
+    window.onload = function() {
+      const modal = document.getElementById("menuModal");
+      modal.style.display = "none"; // Asegura que el modal esté oculto al cargar la página
+    };
+  
+    function toggleModal() {
+        const modal = document.getElementById("menuModal");
+        modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+    }
+  
+    
+    
+  </script>
+  </body>
+
+</html>
+
+

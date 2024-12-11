@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> MainSep - Technology </title>
+  <link href="css/index.css" rel="stylesheet" />
+  <link rel="icon" href="imagenes/iconos/iconomainsep.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Encabezado menú de navegación -->
+<header class="header">
+  <div class="logo">
+    <img src="imagenes/images/logomainsep.png" alt="logo de la imagen">
+  </div>
+  <nav>
+    <ul class="nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="portafolio.html">Casos de éxito</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <!-- Botón de contacto -->
+    <a href="Contacto.html" class="btn-contacto"><button>Contacto</button></a>
+    
+    <div class="cart-icon" style="position: relative; display: inline-block;">
+      <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" style="border: none; background: transparent; padding: 0;">
+        <img src="imagenes/images/carrito-de-compras.png" alt="Carrito">
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+
+    <div href="1_PaginaWeb/login.html" class="usuario-icon" style="position: relative; display: inline-block;">
+      <a href="login.html">
+        <img src="imagenes/images/circulo-de-usuario.png" alt="usuario" style="cursor: pointer;">
+      </a>
+    </div>
+  </div>
+    <!-- Botón para abrir el modal en pantallas pequeñas -->
+   <span class="checkbtn" onclick="toggleModal()">&#9776;</span>
+  </header>
+
+
+  
+  <!-- Modal de navegación -->
+  <div id="menuModal" class="modalemy">
+      <div class="modal-content">
+          <span class="close" onclick="toggleModal()">&times;</span>
+          <div class="header-actionsmodal">
+              <div href="1_PaginaWeb/login.html" class="usuario-iconmodal" style="position: relative; display: inline-block;">
+                <a href="login.html">
+                  <img src="imagenes/images/circulo-de-usuario.png" alt="usuario" style="cursor: pointer;">
+                </a>
+            </div>
+         
+          <nav>
+              <ul class="navemy">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="portafolio.html">Casos de éxito</a></li>
+              </ul>
+              
+          </nav>
+          <a href="Contacto.html" class="btn-contactomodal"><button>Contacto</button></a>
+        </div>
+      </div>
+  </div>
+
+
+  <!-- Sección principal -->
+  <main>
+    
+    <div class="social-bar">
+      <a href="https://api.whatsapp.com/send?phone=573041207710&text=Enlace%3A%0Ahttps%3A%2F%2Ffb.me%2F2nb9fKE6a%0A%0A%C2%A1Hola%21+Podr%C3%ADas+darme+m%C3%A1s+informaci%C3%B3n+de...&source_url=https%3A%2F%2Ffb.me%2F2nb9fKE6a&icebreaker=%C2%A1Hola%21+Podr%C3%ADas+darme+m%C3%A1s+informaci%C3%B3n+de...&app=facebook&entry_point=post_cta&jid=573041207710%40s.whatsapp.net&show_keyboard=1&show_ad_attribution=1&source=FB_Post&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3MjkzODE3ODQsInBob25lIjoiNTczMDQxMjA3NzEwIiwidGV4dCI6IkVubGFjZTpcbmh0dHBzOlwvXC9mYi5tZVwvMm5iOWZLRTZhXG5cblx1MDBhMUhvbGEhIFBvZHJcdTAwZWRhcyBkYXJtZSBtXHUwMGUxcyBpbmZvcm1hY2lcdTAwZjNuIGRlLi4uIiwic291cmNlX3VybCI6Imh0dHBzOlwvXC9mYi5tZVwvMm5iOWZLRTZhIiwiaWNlYnJlYWtlciI6Ilx1MDBhMUhvbGEhIFBvZHJcdTAwZWRhcyBkYXJtZSBtXHUwMGUxcyBpbmZvcm1hY2lcdTAwZjNuIGRlLi4uIiwiYXBwIjoiZmFjZWJvb2siLCJlbnRyeV9wb2ludCI6InBvc3RfY3RhIiwiamlkIjoiNTczMDQxMjA3NzEwXHUwMDQwcy53aGF0c2FwcC5uZXQiLCJzaG93X2tleWJvYXJkIjoxLCJzaG93X2FkX2F0dHJpYnV0aW9uIjoxLCJzb3VyY2UiOiJGQl9Qb3N0Iiwic291cmNlX2lkIjoiMTIyMTAyMTM2NzEwNDg3NDg5IiwiY29udGV4dCI6IkFSQ2lIR1lNNWZ2T3NwNkRCdV84Z0ZNTS1jalNxdkkyRDBTRDdRNDdoaXRCb0lRMzM2eTVKMWY4ck81QVlnY194WHBtd0JoQkpaM1hyR2NqWnVLYUJMMEYyWThueE1LR1BGSUNfSFZhV3g2VjV0TDBmYkdRakRoY3lJcjAzeTVmRFhjM1hiU0ptR0xDT3Fsa3lvTGc3a0p2MS1leF93ejcxdVlTZG5lc0haQkhhYkhFeE1nVklaMmFIVUlhbFZDc2g3bXZibGRmeTlpZGlld2JoM1RDbVN1MHh0VGR5QkJPR1EyN0pta28yaTZUNjRPM1dtTVZnOFBxdFdxNnJfZWxzUjBFOWc0VmNRc1J3VHc0V1JBVjRWTlQxQTFZSDFNUEZEZjNPZXJ4T0M5UVgyNjAxQWk5b3BvR2t2RGhtdUNjUzNuc3hOX3NYNHBqVnhlWDB1R1FDU2JrTTBZcXk3NjBvV0tEejdocVhMMldidyJ9.8l53osQH48eYbzuSgCTo1MELL1gQhiAZ2ySVCJqyKdNkhjGLuBJv7lZ6fXe3T-xuyANTUCPpeO9BQ2Kre_ziSw&fbclid=IwY2xjawF_1b1leHRuA2FlbQIxMAABHXZj5TLZgFSYvZgfnup7uVC3PcwHx3MYfSB0cjzh0kqQc_UcVjZmUtNZQg_aem_4tejyYGvPlqUIC1uLVYvxg" class="social-icon whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61564624676128" class="social-icon facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/mainsep_oficial/" class="social-icon instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@mainsep_oficial?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/mainsep/?viewAsMember=true" class="social-icon linkedin" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <div class="contenedor-principal">
+      <section class="InicioEmy">
+        <h1>Impulsa Tu Negocio Con Soluciones Tecnológicas Personalizadas</h1>
+        <p>Desarrollo de software a la medida de tu crecimiento</p>
+        <div class="emy-icon">
+          <i class="fas fa-rocket" style="display: block; font-size: 40px; margin-bottom: 8px; color:#ff0048;"></i>
+        </div>
+           <!-- <img src="images/iconofucsia.png" alt="icono" class="icono-boton"> -->
+        <button class="mi-boton" onclick="window.location.href='planes.html';">
+          Empieza hoy
+        </button>    
+      </section>
+    </div>
+
+    <div class="containeremy">
+      <div class="left">
+        <h2>Bienvenido a Mainsep</h2>
+        <p>Hola soy <strong>Sara</strong>, tu asistente virtual aquí en Mainsep. Estoy diseñada para ayudarte y responder cualquier duda que tengas sobre nuestros servicios. Ya sea que necesites información sobre nuestros productos, cómo acceder a nuestras soluciones o simplemente quieras saber más sobre cómo Mainsep puede ayudarte a llevar tu negocio al siguiente nivel, ¡estoy aquí para asistirte! Si tienes alguna pregunta, no dudes en enviarme un mensaje. Estoy disponible para ayudarte 24/7.</p>
+      </div>
+      <div class="right">
+        <img src="" alt="" />
+      </div>
+    </div>
+    
+
+
+    <!-- Servicios Mainsep -->
+
+    <section class="mySwiper swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/diseño grafico.png" alt="Diseño Gráfico">
+            <div class="card-content">
+              <h3>Diseño Gráfico</h3>
+              <p>Creación de logotipos, branding y materiales visuales personalizados para tu marca.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/APPs.png" alt="Marketing Digital">
+            <div class="card-content">
+              <h3>  Desarrollo de APPS (iOS) - (Android) </h3>
+              <p> Desarrollo de apps móviles iOS y Android, con soluciones personalizadas y enfocadas en el usuario. </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/marketing digital.png" alt="Marketing Digital">
+            <div class="card-content">
+              <h3>Marketing Digital</h3>
+              <p>Estrategias de marketing personalizadas para mejorar la presencia online de tu negocio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/eecomerce.png" alt="Marketing Digital">
+            <div class="card-content">
+              <h3>Desarrollo de E-commerce</h3>
+              <p> Creación de tiendas en línea personalizadas, optimizadas para una experiencia de compra fluida y segura.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/desarrollo software.png" alt="Desarrollo de Software">
+            <div class="card-content">
+              <h3>Desarrollo de Software</h3>
+              <p>Soluciones de software a medida para optimizar tus procesos y aumentar tu eficiencia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/blockchain.png" alt="Consultoría Blockchain">
+            <div class="card-content">
+              <h3>Consultoría Blockchain</h3>
+              <p>Asesoramiento para implementar blockchain y mejorar la seguridad de tus operaciones.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="service-card">
+            <img src="imagenes/images/UX- UI.png" alt="Diseño UX/UI">
+            <div class="card-content">
+              <h3>Diseño UX/UI</h3>
+              <p>Diseño de interfaces amigables y experiencias optimizadas para tus usuarios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+       
+    <!-- Preguntas frecuentes Mainsep -->
+    
+    
+    <div class="containerpreguntas">
+      <section class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Qué es Mainsep?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Mainsep es una plataforma que utiliza tecnología blockchain para ofrecer soluciones personalizadas de marketing digital, desarrollo web y otros servicios a emprendedores y pequeñas empresas.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Cómo puedo contratar los servicios de Mainsep?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Para contratar nuestros servicios, solo tienes que registrarte en nuestra plataforma y seleccionar el servicio que deseas. Nuestro equipo estará disponible para asistirte.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Es segura la tecnología blockchain de Mainsep?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, Mainsep utiliza blockchain para garantizar la seguridad y transparencia de las transacciones, lo que asegura que los servicios sean seguros y eficientes.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Puedo contratar servicios de desarrollo web si mi empresa es pequeña?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>¡Por supuesto! En Mainsep ofrecemos soluciones de desarrollo web adaptadas a las necesidades de pequeñas empresas y emprendedores, asegurándonos de que se ajusten a tu presupuesto.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Mainsep solo ofrece servicios en mi país?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>No, Mainsep está disponible para emprendedores de todo el mundo, gracias a la tecnología blockchain, que permite realizar transacciones y contratar servicios internacionalmente de manera segura.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Cómo pago por los servicios de Mainsep?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Aceptamos pagos a través de diversas plataformas de pago seguras, incluidas las basadas en criptomonedas, para garantizar que puedas pagar fácilmente desde cualquier lugar.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Mainsep tiene un soporte al cliente?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, nuestro equipo de soporte está disponible para ayudarte con cualquier duda o inconveniente. Puedes contactarnos a través de nuestro chat en vivo, correo electrónico o número telefónico.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Qué servicios ofrece Mainsep?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Ofrecemos una variedad de servicios como desarrollo web, diseño gráfico, marketing digital, y soluciones basadas en blockchain para negocios de todos los tamaños.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Puedo personalizar los servicios de Mainsep según las necesidades de mi empresa?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, todos nuestros servicios son personalizables según tus necesidades específicas. Nuestro equipo trabajará contigo para ofrecerte una solución única que se ajuste a los objetivos de tu empresa.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <div class="faq-header">
+            <button class="faq-question">
+              ¿Mainsep ofrece planes de suscripción?
+              <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, ofrecemos diferentes planes de suscripción adaptados a las necesidades de cada cliente, con opciones flexibles que permiten elegir el paquete de servicios que más te convenga.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Proyectos destacados -->
+    <div class= "containeremy-galeria">
+    <section class="galeria">
+      <h2> Proyectos Destacados </h2>
+      <div class="galeria-contenedor">
+          <img src="imagenes/galeria /5.png" alt="Descripción de imagen 1">
+          <img src="imagenes/galeria /app medica.png" alt="Descripción de imagen 2">
+          <img src="imagenes/galeria /burger.png" alt="Descripción de imagen 3">
+          <img src="imagenes/galeria /bussapp.png" alt="Descripción de imagen 4">
+          <img src="imagenes/galeria /fitness app.png" alt="Descripción de imagen 5">
+          <img src="imagenes/galeria /goodlife.png" alt="Descripción de imagen 6">
+          <img src="imagenes/galeria /mobile app fitness.png" alt="Descripción de imagen 3">
+          <img src="imagenes/galeria /mobileapprun.png" alt="Descripción de imagen 4">
+          <img src="imagenes/galeria /petsapp.png" alt="Descripción de imagen 5">
+          <img src="imagenes/galeria /saludable.png" alt="Descripción de imagen 6">
+          <img src="imagenes/galeria /vuelaapp.png" alt="Descripción de imagen 6">
+          <img src="imagenes/galeria /yoga app.png" alt="Descripción de imagen 6">
+          
+    
+      </div>
+    </section> 
+  </div>
+  
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="logofooter">
+        <img src="imagenes/images/logomainsep.png" alt="Logo Mainsep"> 
+    </div>
+    <div class="contacto">
+        <h4>Contacto</h4>
+        <p>Teléfono: +57 304277012</p>
+        <p>Correo: info@mainsep.com</p>
+    </div>
+
+    <div class="enlaces">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+        </ul>
+    </div>
+
+    <div class="legal">
+        <p>© 2024 desarrollado por Mainsep - Emily Sepulveda. Todos los derechos reservados.</p>
+        <p>Mainsep utiliza tecnología blockchain para garantizar seguridad y eficiencia en las transacciones.</p>
+    </div>
+    
+</footer>
+<!-- Offcanvas para el carrito -->
+<div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 id="cartOffcanvasLabel">Carrito</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul id="cart-items" class="list-group">
+      <!-- Los artículos del carrito se agregarán aquí -->
+    </ul>
+    <div class="mt-3">
+      <strong>Total: $<span id="cart-total">0</span></strong>
+    </div>
+  </div>
+  <div class="offcanvas-footer custom-offcanvas-footer d-flex justify-content-between">
+    <button type="button" class="btn btn-danger" id="emptyCartButton">Vaciar Carrito</button>
+    <button type="button" class="btn btn-success" id="checkoutButton">Pagar ahora</button>
+  </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/carrito.js"></script>
+<script src = "js/inicio.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6712fbe42480f5b4f58fc5d9/1iah2ft4r';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: true, 
+      autoplay: {
+        delay: 1000, 
+        disableOnInteraction: false,
+      },
+      speed: 700,
+      slidesPerView: 1.5, 
+      spaceBetween: 10,
+      coverflowEffect: {
+        depth: 450,
+        modifier: 1,
+        slidesShadows: true,
+        rotate: 20,
+        stretch: 0,
+      },
+      // Ajustes responsivos
+      breakpoints: {
+        640: { slidesPerView: 1, spaceBetween: 10 },
+        768: { slidesPerView: 2.5, spaceBetween: 30 },
+        1024: { slidesPerView: 3, spaceBetween: 40 }
+      },
+      loopAdditionalSlides: 10, 
+    });
+</script>
+<script>
+
+  window.onload = function() {
+    const modal = document.getElementById("menuModal");
+    modal.style.display = "none"; // Asegura que el modal esté oculto al cargar la página
+  };
+
+  function toggleModal() {
+      const modal = document.getElementById("menuModal");
+      modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+  }
+
+  
+  
+</script>
+  
+</body>
+
+</html>

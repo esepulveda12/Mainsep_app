@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Cambia a 'master' si esa es tu rama principal
+      - main
 
 jobs:
   deploy:
@@ -16,5 +16,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./app/public  # Apunta a tu carpeta public
-          force_orphan: true
+          publish_dir: ./app/public
+          enable_jekyll: false
+          keep_files: true

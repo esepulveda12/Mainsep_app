@@ -1,95 +1,121 @@
-// Constants
-const RECIPIENT_WALLET = 'AL36H3ooEDRLi6hsHMkDXQ8HXZ5aPbvnHuDDPFpkVYzU';
+const SHOP_WALLET = '24DqyME5U97Bc43WW42tMZcpEzw4mez5XRE1bb56VR1d';
 const NETWORK = 'devnet';
+const SOL_PRICE_USD = 200; // Precio fijo para ejemplo
 
-// Rest of the code remains exactly the same as in previous artifact
-let provider = null;
 let publicKey = null;
 
-async function initSolanaPayment() {
-    if (!window.solana || !window.solana.isPhantom) {
-        alert('Por favor instala Phantom Wallet');
-        return;
-    }
-
+async function createTransaction(fromPubkey, toPubkey, lamports) {
     try {
-        const resp = await window.solana.connect();
-        provider = window.solana;
-        publicKey = resp.publicKey;
+        const connection = new solanaWeb3.Connection(
+            solanaWeb3.clusterApiUrl(NETWORK)
+        );
         
-        document.getElementById('wallet-info').style.display = 'block';
-        await updateWalletInfo();
-        
-        return true;
-    } catch (err) {
-        console.error('Error connecting to Phantom:', err);
-        alert('Error al conectar con Phantom');
-        return false;
-    }
-}
-
-async function updateWalletInfo() {
-    if (!publicKey) return;
-
-    const connection = new solanaWeb3.Connection(
-        solanaWeb3.clusterApiUrl(NETWORK)
-    );
-
-    try {
-        const balance = await connection.getBalance(publicKey);
-        
-        document.getElementById('wallet-address').textContent = 
-            `${publicKey.toString().slice(0,4)}...${publicKey.toString().slice(-4)}`;
-        document.getElementById('wallet-balance').textContent = 
-            `${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(4)}`;
-    } catch (err) {
-        console.error('Error fetching balance:', err);
-    }
-}
-
-async function processPayment(amount) {
-    if (!publicKey || !provider) {
-        alert('Por favor conecta tu wallet primero');
-        return false;
-    }
-
-    const connection = new solanaWeb3.Connection(
-        solanaWeb3.clusterApiUrl(NETWORK)
-    );
-
-    try {
-        document.getElementById('tx-status').textContent = 'Procesando...';
-
+        // Usar directamente SystemProgram.transfer
         const transaction = new solanaWeb3.Transaction().add(
             solanaWeb3.SystemProgram.transfer({
-                fromPubkey: publicKey,
-                toPubkey: new solanaWeb3.PublicKey(RECIPIENT_WALLET),
-                lamports: amount * solanaWeb3.LAMPORTS_PER_SOL
+                fromPubkey,
+                toPubkey: new solanaWeb3.PublicKey(toPubkey),
+                lamports: BigInt(lamports)
             })
         );
 
-        const { blockhash } = await connection.getLatestBlockhash();
+        const { blockhash } = await connection.getRecentBlockhash();
         transaction.recentBlockhash = blockhash;
-        transaction.feePayer = publicKey;
+        transaction.feePayer = fromPubkey;
 
-        const signed = await provider.signAndSendTransaction(transaction);
+        return transaction;
+    } catch (error) {
+        console.error('Error creando transacción:', error);
+        throw error;
+    }
+}
+
+async function processPayment(amountUSD) {
+    try {
+        if (!window.solana?.isPhantom) {
+            alert('Por favor instala Phantom Wallet');
+            return false;
+        }
+
+        document.getElementById('tx-status').textContent = 'Procesando...';
+
+        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK));
         
-        const confirmation = await connection.confirmTransaction(signed.signature);
+        if (!publicKey) {
+            await initSolanaPayment();
+        }
+
+        // Convertir USD a SOL
+        const solAmount = amountUSD / SOL_PRICE_USD;
+        const lamports = Math.round(solAmount * solanaWeb3.LAMPORTS_PER_SOL);
+
+        // Crear transacción
+        const transaction = await createTransaction(
+            publicKey,
+            new solanaWeb3.PublicKey(SHOP_WALLET),
+            lamports
+        );
+
+        // Firmar y enviar
+        const signedTx = await window.solana.signTransaction(transaction);
+        const signature = await connection.sendRawTransaction(signedTx.serialize());
         
-        if (confirmation.value.err) throw new Error('Transaction failed');
+        // Confirmar transacción
+        const confirmation = await connection.confirmTransaction(signature);
+        
+        if (confirmation.value.err) {
+            throw new Error('Error confirmando la transacción');
+        }
 
         document.getElementById('tx-status').textContent = 'Completada';
         alert('¡Pago exitoso!');
         return true;
 
-    } catch (err) {
-        console.error('Error in payment:', err);
-        document.getElementById('tx-status').textContent = 'Error';
-        alert('Error en el pago: ' + err.message);
+    } catch (error) {
+        console.error('Error en el pago:', error);
+        document.getElementById('tx-status').textContent = 'Fallida';
+        alert('Error en el pago. Por favor intenta de nuevo.');
         return false;
     }
 }
 
+async function initSolanaPayment() {
+    try {
+        const resp = await window.solana.connect();
+        publicKey = resp.publicKey;
+        
+        document.getElementById('wallet-info').style.display = 'block';
+        document.getElementById('connect-phantom').style.display = 'none';
+        
+        const walletAddress = publicKey.toString();
+        document.getElementById('wallet-address').textContent = 
+            `${walletAddress.slice(0,4)}...${walletAddress.slice(-4)}`;
+
+        await updateBalance();
+        
+    } catch (error) {
+        console.error('Error conectando wallet:', error);
+        alert('Error conectando con Phantom');
+    }
+}
+
+async function updateBalance() {
+    try {
+        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK));
+        const balance = await connection.getBalance(publicKey);
+        document.getElementById('wallet-balance').textContent = 
+            `${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(4)}`;
+    } catch (error) {
+        console.error('Error obteniendo balance:', error);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('connect-phantom').addEventListener('click', initSolanaPayment);
+    const connectButton = document.getElementById('connect-phantom');
+    if (connectButton) {
+        connectButton.addEventListener('click', initSolanaPayment);
+    }
 });
+
+window.processPayment = processPayment;
+window.initSolanaPayment = initSolanaPayment;

@@ -1,33 +1,70 @@
+// routes/paymentRoutes.js
 const express = require('express');
-const stripe = require('stripe')('tu_clave_secreta_stripe');
 const router = express.Router();
+// Usa tu clave secreta de producción
+const stripe = require('stripe')('sk_live_TuClaveSecretaAqui');
 
-// Ruta para procesar pagos
-router.post('/process-payment', async (req, res) => {
+router.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const charge = await stripe.charges.create({
-            amount: req.body.amount,
+        const { paymentMethodId, amount, email, name } = req.body;
+
+        // Crear un PaymentIntent
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: Math.round(amount * 100), // Convertir a centavos
             currency: 'usd',
+            payment_method: paymentMethodId,
+            confirmation_method: 'manual',
+            confirm: false,
             description: 'Suscripción MainSep',
-            source: req.body.token,
-            receipt_email: req.body.email
+            metadata: {
+                customer_name: name,
+                customer_email: email
+            },
+            receipt_email: email
         });
 
-        // Aquí deberías implementar la función saveSubscription
-        // Por ahora, comentamos esta parte hasta tener la base de datos
-        /*
-        await saveSubscription({
-            userId: req.user.id,
-            planDetails: JSON.parse(localStorage.getItem('selectedPlans')),
-            chargeId: charge.id,
-            amount: req.body.amount / 100
+        res.json({
+            clientSecret: paymentIntent.client_secret
         });
-        */
 
-        res.json({ success: true });
     } catch (error) {
-        res.json({ success: false, error: error.message });
+        console.error('Error en el pago:', error);
+        res.status(500).json({
+            error: error.message
+        });
     }
+});
+
+// Webhook para manejar eventos de Stripe
+router.post('/webhook', express.raw({type: 'application/json'}), async (req, res) => {
+    const sig = req.headers['stripe-signature'];
+    let event;
+
+    try {
+        event = stripe.webhooks.constructEvent(
+            req.body,
+            sig,
+            'tu_webhook_secret' // Configura esto en tu dashboard de Stripe
+        );
+    } catch (err) {
+        console.error('Error webhook:', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Manejar el evento
+    switch (event.type) {
+        case 'payment_intent.succeeded':
+            const paymentIntent = event.data.object;
+            // Aquí puedes añadir lógica para actualizar tu base de datos
+            console.log('PaymentIntent fue exitoso:', paymentIntent.id);
+            break;
+        case 'payment_intent.payment_failed':
+            const failedPayment = event.data.object;
+            console.log('Pago fallido:', failedPayment.id);
+            break;
+    }
+
+    res.json({received: true});
 });
 
 module.exports = router;

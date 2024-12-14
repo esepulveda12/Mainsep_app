@@ -4,14 +4,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon app/index.js",
+    "dev": "npx nodemon app/index.js",
     "start": "node app/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@solana/wallet-adapter-base": "^0.9.22",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-phantom": "^0.9.24",
     "@solana/web3.js": "^1.95.8",
     "@stripe/stripe-js": "^5.2.0",
     "bcryptjs": "^2.4.3",
@@ -25,7 +26,9 @@
     "stripe": "^12.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.1.9",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": ">=14.0.0",

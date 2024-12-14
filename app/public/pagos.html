@@ -1,167 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Formulario de Pago</title>
-   <link rel="stylesheet" href="css/pagos.css">
-   <link rel="stylesheet" href="css/index.css">
-   <link rel="icon" href="images/iconomainsep.png" type="image/x-icon">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://js.stripe.com/v3/"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <link rel="stylesheet" href="css/pagos.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/iconomainsep.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-   <a href="planes.html" class="volver-btn" aria-label="Volver a planes">
-       <span class="material-icons">arrow_back</span>
-   </a>
-   <div class="containerpagos">
-       <div class="header">
-           <img src="imagenes/images/MainSep fucsia (2).png" alt="Logo">
-       </div>
-       <div class="content">
-           <div class="form-column">
-               <div class="payment-methods">
-                   <div class="method-selector">
-                       <div class="payment-option">
-                           <input type="radio" id="traditional" name="payment" checked>
-                           <label for="traditional">
-                               <i class="fas fa-credit-card"></i>
-                               Tarjeta de Crédito/Débito
-                           </label>
-                       </div>
-                       <div class="payment-option">
-                           <input type="radio" id="crypto" name="payment">
-                           <label for="crypto">
-                               <i class="fab fa-bitcoin"></i>
-                               Pago con Blockchain 
-                           </label>
-                       </div>
-                   </div>
-
-                   <div id="payment-forms">
-                    <div id="traditional-form">
-                        <form id="payment-form">
-                            <label for="name">Nombre completo</label>
-                            <input type="text" id="name" required>
-                    
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" required>
-                    
-                            <label for="card-element">Tarjeta de Crédito</label>
-                            <div id="card-element" class="form-control"></div>
-                            <div id="card-errors" role="alert" class="text-danger mt-2"></div>
-                    
-                            <button class="btn btn-primary mt-3" type="submit">Realizar Pago</button>
-                        </form>
+    <a href="planes.html" class="volver-btn" aria-label="Volver a planes">
+        <span class="material-icons">arrow_back</span>
+    </a>
+    <div class="containerpagos">
+        <div class="header">
+            <img src="imagenes/images/MainSep fucsia (2).png" alt="Logo">
+        </div>
+        <div class="content">
+            <div class="form-column">
+                <div class="payment-methods">
+                    <div class="method-selector">
+                        <div class="payment-option">
+                            <input type="radio" id="traditional" name="payment" checked>
+                            <label for="traditional">
+                                <i class="fas fa-credit-card"></i>
+                                Tarjeta de Crédito/Débito
+                            </label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="crypto" name="payment">
+                            <label for="crypto">
+                                <i class="fab fa-bitcoin"></i>
+                                Pago con Blockchain 
+                            </label>
+                        </div>
                     </div>
-                       
-                       <div id="crypto-form" style="display:none">
-                           <button id="connect-phantom" class="wallet-button">
-                               <img src="imagenes/images/pantom.png" alt="Phantom">
-                               Conectar Billetera 
-                           </button>
-                           <div id="wallet-info" style="display:none">
-                               <p>Wallet conectada: <span id="wallet-address"></span></p>
-                               <p>Balance: <span id="wallet-balance"></span> SOL</p>
-                               <button type="button" class="wallet-button" onclick="processPayment(total)">
-                                   Pagar con Blockchain SOL
-                               </button>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           
-           <div class="plan-column overflow-auto">
-            <div class="blockchain-status">
-                <p>Estado de transacción: <span id="tx-status">No iniciada</span></p>
+
+                    <div id="payment-forms">
+                        <div id="traditional-form">
+                            <form id="payment-form">
+                                <label for="name">Nombre completo</label>
+                                <input type="text" id="name" required>
+                        
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" required>
+                        
+                                <label for="card-element">Tarjeta de Crédito</label>
+                                <div id="card-element" class="form-control"></div>
+                                <div id="card-errors" role="alert" class="text-danger mt-2"></div>
+                        
+                                <button class="btn btn-primary mt-3" type="submit">Realizar Pago</button>
+                            </form>
+                        </div>
+                        
+                        <div id="crypto-form" style="display:none">
+                            <button id="connect-phantom" class="wallet-button">
+                                <img src="imagenes/images/pantom.png" alt="Phantom">
+                                Conectar Billetera 
+                            </button>
+                            <div id="wallet-info" style="display:none">
+                                <p>Wallet conectada: <span id="wallet-address"></span></p>
+                                <p>Balance: <span id="wallet-balance"></span> SOL</p>
+                                <button type="button" class="wallet-button" onclick="processPayment(total)">
+                                    Pagar con Blockchain SOL
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="selected-plans"></div>
-            <div class="total-section p-3 bg-light">
-                <h4 id="total-amount" class="text-end"></h4>
+            
+            <div class="plan-column overflow-auto">
+                <div class="blockchain-status">
+                    <p>Estado de transacción: <span id="tx-status">No iniciada</span></p>
+                </div>
+                <div id="selected-plans"></div>
+                <div class="total-section p-3 bg-light">
+                    <h4 id="total-amount" class="text-end"></h4>
+                </div>
             </div>
         </div>
-       </div>
-   </div>
+    </div>
 
-   <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-   <script src="js/blockchain.js"></script>
-   <script>
-   document.addEventListener('DOMContentLoaded', () => {
-       const checkoutData = JSON.parse(localStorage.getItem('selectedPlans')) || { plans: [], total: 0 };
-       const plansContainer = document.getElementById('selected-plans');
-       const totalAmount = document.getElementById('total-amount');
-       const traditionalRadio = document.getElementById('traditional');
-       const cryptoRadio = document.getElementById('crypto');
-       const traditionalForm = document.getElementById('traditional-form');
-       const cryptoForm = document.getElementById('crypto-form');
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="js/blockchain.js"></script>
+    <script src="js/stripe.js"></script>
 
-       function updatePlansAndTotal() {
-           const newTotal = checkoutData.plans.reduce((sum, plan) => 
-               sum + (plan.price * plan.quantity), 0);
-           checkoutData.total = newTotal;
-           localStorage.setItem('selectedPlans', JSON.stringify(checkoutData));
-           totalAmount.textContent = `Total: $${newTotal.toFixed(2)} USD/mes`;
-           window.total = newTotal;
-       }
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkoutData = JSON.parse(localStorage.getItem('selectedPlans')) || { plans: [], total: 0 };
+        const plansContainer = document.getElementById('selected-plans');
+        const totalAmount = document.getElementById('total-amount');
+        const traditionalRadio = document.getElementById('traditional');
+        const cryptoRadio = document.getElementById('crypto');
+        const traditionalForm = document.getElementById('traditional-form');
+        const cryptoForm = document.getElementById('crypto-form');
 
-       function removePlan(index) {
-           checkoutData.plans.splice(index, 1);
-           renderPlans();
-           updatePlansAndTotal();
-           
-           if(checkoutData.plans.length === 0) {
-               window.location.href = 'planes.html';
-           }
-       }
+        function updatePlansAndTotal() {
+            const newTotal = checkoutData.plans.reduce((sum, plan) => 
+                sum + (plan.price * plan.quantity), 0);
+            checkoutData.total = newTotal;
+            localStorage.setItem('selectedPlans', JSON.stringify(checkoutData));
+            totalAmount.textContent = `Total: $${newTotal.toFixed(2)} USD/mes`;
+            window.total = newTotal;
+        }
 
-       function renderPlans() {
-           plansContainer.innerHTML = '';
-           checkoutData.plans.forEach((plan, index) => {
-               plansContainer.innerHTML += `
-                   <div class="card mb-3">
-                       <div class="d-flex p-3">
-                           <img src="imagenes/iconos/${plan.icon}" alt="${plan.name}" style="width: 50px; height: 50px" class="me-3">
-                           <div class="flex-grow-1">
-                               <div class="d-flex justify-content-between align-items-center">
-                                   <h5>${plan.name} ${plan.quantity > 1 ? `(x${plan.quantity})` : ''}</h5>
-                                   <div>
-                                       <button class="btn btn-danger btn-sm me-2" onclick="removePlan(${index})">
-                                           <i class="fas fa-trash"></i>
-                                       </button>
-                                       <h4 class="d-inline">$${(plan.price * plan.quantity).toFixed(2)} USD/mes</h4>
-                                   </div>
-                               </div>
-                               <p class="text-muted mb-2">${plan.description}</p>
-                               <div class="small">
-                                   ${plan.features.map(feature => `<div class="mb-1">• ${feature}</div>`).join('')}
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               `;
-           });
-       }
+        function removePlan(index) {
+            checkoutData.plans.splice(index, 1);
+            renderPlans();
+            updatePlansAndTotal();
+            
+            if(checkoutData.plans.length === 0) {
+                window.location.href = 'planes.html';
+            }
+        }
 
-       traditionalRadio.addEventListener('change', () => {
-           traditionalForm.style.display = 'block';
-           cryptoForm.style.display = 'none';
-       });
+        function renderPlans() {
+            plansContainer.innerHTML = '';
+            checkoutData.plans.forEach((plan, index) => {
+                plansContainer.innerHTML += `
+                    <div class="card mb-3">
+                        <div class="d-flex p-3">
+                            <img src="imagenes/iconos/${plan.icon}" alt="${plan.name}" style="width: 50px; height: 50px" class="me-3">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5>${plan.name} ${plan.quantity > 1 ? `(x${plan.quantity})` : ''}</h5>
+                                    <div>
+                                        <button class="btn btn-danger btn-sm me-2" onclick="removePlan(${index})">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <h4 class="d-inline">$${(plan.price * plan.quantity).toFixed(2)} USD/mes</h4>
+                                    </div>
+                                </div>
+                                <p class="text-muted mb-2">${plan.description}</p>
+                                <div class="small">
+                                    ${plan.features.map(feature => `<div class="mb-1">• ${feature}</div>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
 
-       cryptoRadio.addEventListener('change', () => {
-           traditionalForm.style.display = 'none';
-           cryptoForm.style.display = 'block';
-       });
+        traditionalRadio.addEventListener('change', () => {
+            traditionalForm.style.display = 'block';
+            cryptoForm.style.display = 'none';
+        });
 
-       window.removePlan = removePlan;
-       renderPlans();
-       updatePlansAndTotal();
-   });
-   </script>
-   <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-   <script src="js/blockchain.js"></script>
-   <script src="js/stripe.js"></script>
+        cryptoRadio.addEventListener('change', () => {
+            traditionalForm.style.display = 'none';
+            cryptoForm.style.display = 'block';
+        });
+
+        window.removePlan = removePlan;
+        renderPlans();
+        updatePlansAndTotal();
+    });
+    </script>
 </body>
 </html>

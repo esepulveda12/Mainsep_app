@@ -8,6 +8,8 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import jwt from 'jsonwebtoken';
 
+mongoose.set('strictQuery', true);
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -18,7 +20,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Middleware
 app.use(cors({
-  origin: process.env.DOMAIN || 'http://localhost:3000',
+  origin: process.env.DOMAIN || 'https://mainsep.com',
   credentials: true
 }));
 app.use(express.json());
@@ -259,7 +261,7 @@ app.get('/planes', authMiddleware, adminMiddleware, (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
 });
@@ -311,5 +313,5 @@ app.get('/api/user-plans', authMiddleware, async (req, res) => {
 });
 
 app.get('/api/plans/:id', authMiddleware, async (req, res) => {
-  // Implementar lógica para obtener detalles del plan
+  
 });

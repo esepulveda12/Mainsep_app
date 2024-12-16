@@ -1,22 +1,53 @@
+// blockchain.js
 const SHOP_WALLET = '24DqyME5U97Bc43WW42tMZcpEzw4mez5XRE1bb56VR1d';
 const NETWORK = 'devnet';
-const SOL_PRICE_USD = 200; // Precio fijo para ejemplo
+// Token USDT de prueba en devnet
+const USDT_MINT = 'Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr';
+const DECIMALS = 6; // USDT tiene 6 decimales
 
 let publicKey = null;
+let connection = null;
 
-async function createTransaction(fromPubkey, toPubkey, lamports) {
+async function findAssociatedTokenAddress(walletAddress, tokenMint) {
+    const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new solanaWeb3.PublicKey(
+        'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL'
+    );
+    const TOKEN_PROGRAM_ID = new solanaWeb3.PublicKey(
+        'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
+    );
+
+    const [address] = await solanaWeb3.PublicKey.findProgramAddress(
+        [
+            walletAddress.toBuffer(),
+            TOKEN_PROGRAM_ID.toBuffer(),
+            new solanaWeb3.PublicKey(tokenMint).toBuffer(),
+        ],
+        SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID
+    );
+
+    return address;
+}
+
+async function createTokenTransfer(fromPubkey, toPubkey, amount) {
     try {
-        const connection = new solanaWeb3.Connection(
-            solanaWeb3.clusterApiUrl(NETWORK)
+        const fromTokenAccount = await findAssociatedTokenAddress(
+            fromPubkey,
+            USDT_MINT
         );
-        
-        // Usar directamente SystemProgram.transfer
+        const toTokenAccount = await findAssociatedTokenAddress(
+            new solanaWeb3.PublicKey(toPubkey),
+            USDT_MINT
+        );
+
         const transaction = new solanaWeb3.Transaction().add(
-            solanaWeb3.SystemProgram.transfer({
+            splToken.Token.createTransferInstruction(
+                new solanaWeb3.PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'),
+                fromTokenAccount,
+                toTokenAccount,
                 fromPubkey,
-                toPubkey: new solanaWeb3.PublicKey(toPubkey),
-                lamports: BigInt(lamports)
-            })
+                [],
+                amount * Math.pow(10, DECIMALS)
+            )
         );
 
         const { blockhash } = await connection.getRecentBlockhash();
@@ -38,29 +69,26 @@ async function processPayment(amountUSD) {
         }
 
         document.getElementById('tx-status').textContent = 'Procesando...';
-
-        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK));
+        
+        connection = new solanaWeb3.Connection(
+            solanaWeb3.clusterApiUrl(NETWORK)
+        );
         
         if (!publicKey) {
             await initSolanaPayment();
         }
 
-        // Convertir USD a SOL
-        const solAmount = amountUSD / SOL_PRICE_USD;
-        const lamports = Math.round(solAmount * solanaWeb3.LAMPORTS_PER_SOL);
+        const usdtAmount = amountUSD;
 
-        // Crear transacción
-        const transaction = await createTransaction(
+        const transaction = await createTokenTransfer(
             publicKey,
-            new solanaWeb3.PublicKey(SHOP_WALLET),
-            lamports
+            SHOP_WALLET,
+            usdtAmount
         );
 
-        // Firmar y enviar
         const signedTx = await window.solana.signTransaction(transaction);
         const signature = await connection.sendRawTransaction(signedTx.serialize());
-        
-        // Confirmar transacción
+
         const confirmation = await connection.confirmTransaction(signature);
         
         if (confirmation.value.err) {
@@ -74,8 +102,18 @@ async function processPayment(amountUSD) {
     } catch (error) {
         console.error('Error en el pago:', error);
         document.getElementById('tx-status').textContent = 'Fallida';
-        alert('Error en el pago. Por favor intenta de nuevo.');
+        alert('Error en el pago: ' + error.message);
         return false;
+    }
+}
+
+async function getTokenBalance(tokenAccount) {
+    try {
+        const balance = await connection.getTokenAccountBalance(tokenAccount);
+        return balance.value.uiAmount;
+    } catch (error) {
+        console.error('Error obteniendo balance de token:', error);
+        return 0;
     }
 }
 
@@ -101,12 +139,19 @@ async function initSolanaPayment() {
 
 async function updateBalance() {
     try {
-        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK));
-        const balance = await connection.getBalance(publicKey);
+        connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK));
+        
+        const tokenAccount = await findAssociatedTokenAddress(
+            publicKey,
+            USDT_MINT
+        );
+
+        const balance = await getTokenBalance(tokenAccount);
         document.getElementById('wallet-balance').textContent = 
-            `${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(4)}`;
+            `${balance.toFixed(2)} USDT`;
     } catch (error) {
         console.error('Error obteniendo balance:', error);
+        document.getElementById('wallet-balance').textContent = '0.00 USDT';
     }
 }
 

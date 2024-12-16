@@ -20,7 +20,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Middleware
 app.use(cors({
-  origin: process.env.DOMAIN || 'https://mainsep.com',
+  origin: process.env.DOMAIN || 'https://localhost:10000',
   credentials: true
 }));
 app.use(express.json());
@@ -315,3 +315,5 @@ app.get('/api/user-plans', authMiddleware, async (req, res) => {
 app.get('/api/plans/:id', authMiddleware, async (req, res) => {
   
 });
+
+

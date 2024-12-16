@@ -8,7 +8,7 @@ document.getElementById('registro-form').addEventListener('submit', async (e) =>
   try {
     console.log('Enviando datos:', { username, email, password }); // Para debug
 
-    const response = await fetch('https://mainsep.com/api/registro', {
+    const response = await fetch('http://localhost:10000/api/registro', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
